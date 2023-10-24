@@ -2,7 +2,19 @@ import React from "react";
 import Post from "./Post";
 import Header from "./Header";
 
-const title = "JStack`s Blog";
+const posts = [
+  {
+    title: 'Title #01', subtitle: 'Subtitle #01', likes: 20
+  },
+
+  {
+    title: 'Title #02', subtitle: 'Subtitle #02', likes: 40
+  },
+
+  {
+    title: 'Title #03', subtitle: 'Subtitle #03', likes: 120
+  },
+];
 
 function App() {
   return (
@@ -12,29 +24,18 @@ function App() {
       </Header>
       <hr />
 
-      <Post
-        likes={20}
-        post={{
-          title: "Titulo da Noticia 01",
-          subtitle: "Subtitulo da Noticia 01",
-        }}
-      />
-
-      <Post
-        likes={50}
-        post={{
-          title: "Titulo da Noticia 02",
-          subtitle: "Subtitulo da Noticia 02",
-        }}
-      />
-
-      <Post
-        likes={30}
-        post={{
-          title: "Titulo da Noticia 03",
-          subtitle: "Subtitulo da Noticia 03",
-        }}
-      />
+      {posts.map(
+        (element) => (
+          <Post
+            key={element.title} 
+            post={{
+              title : element.title,
+              subtitle: element.subtitle
+            }}
+            likes={element.likes} 
+          />
+        )
+      )}
     </>
   );
 }
