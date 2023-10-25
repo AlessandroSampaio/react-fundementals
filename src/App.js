@@ -30,6 +30,10 @@ function App() {
     ]);
   };
 
+  function handleRemove( postId){
+    setPosts((prevState) => prevState.filter(post => post.id !== postId));
+  }
+
   
   return (
     <>
@@ -43,7 +47,9 @@ function App() {
         (element) => (
           <Post
             key={element.title} 
+            onRemove={handleRemove}
             post={{
+              id: element.id,
               title : element.title,
               subtitle: element.subtitle
             }}
