@@ -6,15 +6,15 @@ function App() {
 
   const [posts, setPosts] = useState([
     {
-      id: Math.random(), title: 'Title #01', subtitle: 'Subtitle #01', likes: 20
+      id: Math.random(), title: 'Title #01', subtitle: 'Subtitle #01', likes: 20, read: true,
     },
   
     {
-      id: Math.random(), title: 'Title #02', subtitle: 'Subtitle #02', likes: 40
+      id: Math.random(), title: 'Title #02', subtitle: 'Subtitle #02', likes: 40, read: true,
     },
   
     {
-      id: Math.random(), title: 'Title #03', subtitle: 'Subtitle #03', likes: 120
+      id: Math.random(), title: 'Title #03', subtitle: 'Subtitle #03', likes: 120, read: false,
     },
   ]);
 
@@ -51,7 +51,8 @@ function App() {
             post={{
               id: element.id,
               title : element.title,
-              subtitle: element.subtitle
+              subtitle: element.subtitle,
+              read: element.read
             }}
             likes={element.likes} 
           />
