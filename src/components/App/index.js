@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import Post from "./Post";
-import { ThemeProvider } from "./ThemeContext";
+import Header from "../Header";
+import Post from "../Post";
+import { ThemeProvider } from "../../context/ThemeContext";
 
 
 function App() {
