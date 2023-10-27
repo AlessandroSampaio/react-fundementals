@@ -1,7 +1,6 @@
-import React, { useState, createContext } from "react";
-import Post from "./Post";
+import React, { useState } from "react";
 import Header from "./Header";
-import Button from "./Button";
+import Post from "./Post";
 import { ThemeProvider } from "./ThemeContext";
 
 
@@ -14,6 +13,7 @@ function App() {
       subtitle: "Subtitle #01",
       likes: 20,
       read: true,
+      removed: false,
     },
 
     {
@@ -22,6 +22,7 @@ function App() {
       subtitle: "Subtitle #02",
       likes: 40,
       read: true,
+      removed: false,
     },
 
     {
@@ -30,6 +31,7 @@ function App() {
       subtitle: "Subtitle #03",
       likes: 120,
       read: false,
+      removed: true,
     },
   ]);
 
@@ -42,12 +44,18 @@ function App() {
         title: `Title #0${posts.length + 1}`,
         subtitle: `Subtitle #0${posts.length + 1}`,
         likes: 50,
+        read: false,
+        removed: false,
       },
     ]);
   }
 
   function handleRemove(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+    setPosts((prevState) => 
+      prevState.map(post => (
+        post.id === postId ? {...post, removed: true} : post
+      )
+    ));
   }
 
   return (
@@ -67,6 +75,7 @@ function App() {
             title: element.title,
             subtitle: element.subtitle,
             read: element.read,
+            removed: element.removed
           }}
           likes={element.likes}
         />
