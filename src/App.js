@@ -8,10 +8,11 @@ import themes from "./styles/themes";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      theme: props.theme ?? "light",
-    };
   }
+
+  state = {
+    theme: "light",
+  };
 
   handleToggleTheme = () => {
     this.setState(prevState => ({ theme: prevState.theme === 'dark' ? 'light' : 'dark' }));
