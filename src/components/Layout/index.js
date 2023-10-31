@@ -1,13 +1,14 @@
 import React from "react";
-import Header from "../Header";
+import Routes from "../../Routes";
 import Footer from "../Footer";
-import PostsList from "../PostList";
+import Header from "../Header";
 
 export default function Layout() {
   return (
     <>
       <Header />
-      <PostsList />
+      <Routes />
+      {/* <PostsList /> */}
       <Footer />
     </>
   );
