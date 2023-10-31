@@ -5,4 +5,8 @@ export default createGlobalStyle`
         font-family: sans-serif;
         background: ${(props) => props.theme.backgroundColor};
     }
+
+    h1 {
+        color: #fff;
+    }
 `;
